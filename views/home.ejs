@@ -3,20 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home</title>
+  <title><%=restaurant.name%></title>
 </head>
-
+<%- include('./partials/nav') %>
 
 <body>
-  <%- include('./partials/nav.ejs') %>
-    <!-- Now modify the existing route that handles the homepage / request. Update this route to render the home.ejs template in response to a request.
-👀 When you refresh your browser, it should now be rendering the <h1> with the content Home Page.
+  <h1>Home Page</h1>
+  <!-- restaurant sent to home.ejs -->
+<%= restaurant.name %> 
+  <!-- restaurant  phone sent to home.ejs -->
+<%= restaurant.phone %>
+  <!-- restaurant address sent to home.ejs -->
+<%=restaurant.address%>
+<!-- Level Up  -->
+<% if ( restaurant.isOpen) { %>
+    <p> <%='Yes we are open!' %><p>
+    <% } else { %>
+     <p><%="Sorry, we are closed" %></p>
+<% } %>
 
- -->
-     
-    <h1>Welcome to <%= restaurant.name %></h1>
-    <p>Address: <%= restaurant.address %></p>
-    <p>Phone: <%= restaurant.phone %></p>
- 
+<!--   Full Menu -->
+
+
+
+
 </body>
 </html>
